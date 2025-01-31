@@ -12,19 +12,17 @@ const options = {
             description:
                 "API for managing events and their associated expenses",
         },
-        servers: isProduction
-            ? [
-                  {
+        servers: [
+            process.env.NODE_ENV !== "production"
+                ? {
                       url: "https://opdracht-4-evenementen-api.onrender.com/api/events",
                       description: "Production server",
-                  },
-              ]
-            : [
-                  {
+                  }
+                : {
                       url: "http://localhost:3000/api/v1",
                       description: "Development server",
                   },
-              ],
+        ],
         components: {
             schemas: {
                 Event: {
