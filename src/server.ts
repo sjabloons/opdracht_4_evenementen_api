@@ -4,7 +4,7 @@ import cors from "cors";
 import express from "express";
 import mongoose from "mongoose";
 
-import EventRoutes from "./src/Routes/EventRoutes.ts";
+import EventRoutes from "./Routes/EventRoutes.js";
 
 //Variables
 const app = express();
@@ -23,4 +23,10 @@ try {
     console.log("Database connection OK");
 } catch (error) {
     console.log(error);
+    process.exit(1);
 }
+
+//server listening
+app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT} 🚀`);
+});
