@@ -15,7 +15,7 @@ const options = {
         servers: [
             process.env.NODE_ENV !== "production"
                 ? {
-                      url: "https://opdracht-4-evenementen-api.onrender.com/api/events",
+                      url: "https://opdracht-4-evenementen-api.onrender.com/api/",
                       description: "Production server",
                   }
                 : {
