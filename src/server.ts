@@ -3,6 +3,8 @@ import "dotenv/config";
 import cors from "cors";
 import express from "express";
 import mongoose from "mongoose";
+import swaggerUi from "swagger-ui-express";
+import { specs } from "./swagger";
 
 import EventRoutes from "./Routes/EventRoutes.js";
 
@@ -16,6 +18,14 @@ app.use(express.json());
 
 //Routes
 app.use("/api/events", EventRoutes);
+
+//Swagger docs
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+
+//handle unknown routes
+app.all("*", (req, res) => {
+    res.status(404).json({ message: "Route not found" });
+});
 
 //Database connection
 try {
