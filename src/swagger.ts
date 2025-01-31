@@ -15,7 +15,7 @@ const options = {
         servers: isProduction
             ? [
                   {
-                      url: "https://api-event.onrender.com/api/events",
+                      url: "https://opdracht-4-evenementen-api.onrender.com/api/events",
                       description: "Production server",
                   },
               ]
